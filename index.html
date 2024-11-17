@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa-IR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="subject" content="ربات استرابری سرور">
+    <meta name="copyright" content="ربات استرابری سرور">
+    <meta name="author" content="A747iR, 4lph4-ir@gmail.com">
+    <meta name="designer" content="A747ir">
+    <meta name="owner" content="Strawberry server bot">
+    <meta name="theme-color" content="#0d1117">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title>Strawberry Server Bot | ربات استرابری سرور</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14pt;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+
+        /* Fullscreen animated background */
+        #large-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Send to back */
+            overflow: hidden;
+            background-color: #0d1117;
+        }
+        canvas {
+            display: block;
+        }
+
+        /* Main container */
+        .main_page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+            margin: 10px auto;
+            border: 1px solid #30363d;
+            background-color: #161b22;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .page_header {
+            background-color: #161b22;
+            padding: 20px;
+            border-bottom: 1px solid #30363d;
+        }
+        .page_header span {
+            font-size: 22px;
+            font-weight: bold;
+            color: #c9d1d9;
+        }
+        .page_header img {
+            width: 128px;
+            height: 128px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        /* Content sections */
+        .content_section {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            background-color: #0d1117;
+        }
+        .section_header_red {
+            background-color: #161b22;
+            padding: 10px;
+            font-weight: bold;
+            color: #f78166;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .content_section_text {
+            padding: 10px;
+            color: #c9d1d9;
+            font-size: 13pt;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            width: 100%;
+            padding: 15px;
+            background-color: #161b22;
+            color: #8b949e;
+            font-size: 12pt;
+            text-align: center;
+            border-top: 1px solid #30363d;
+        }
+        .footer a {
+            color: #58a6ff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border: 1px solid #30363d;
+            border-radius: 5px;
+            background-color: #21262d;
+            display: inline-block;
+        }
+        .footer a:hover {
+            background-color: #30363d;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 600px) {
+            body, html {
+                font-size: 12pt;
+            }
+            .page_header span {
+                font-size: 18px;
+            }
+            .content_section_text {
+                font-size: 12pt;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div id="large-header">
+
+
+    <!-- Main Content -->
+    <div class="main_page">
+        <div class="page_header">
+            <div style="text-align: center;">
+                <img src="https://strawberryvps.com/wp-content/uploads/2024/10/strawberryvps-bot-logo.png" alt="StrawberryVPS Logo">
+            </div>
+            <span>Strawberry VPS Bot Homepage</span>
+        </div>
+        <div class="content_section">
+            <div class="section_header_red">
+                Telegram Bot: <a title="Strawberry BOT" target="_blank" href="https://t.me/strawberryvpn_bot">Strawberry BOT</a>
+                Telegram Channel: <a title="Strawberry Channel" target="_blank" href="https://t.me/strawberryvpn">Strawberry Channel</a>
+            </div>
+            <div class="content_section_text">
+                <p>شما در صفحه اصلی ربات استرابری سرور میباشید</p>
+                <p><b>برای بهره مندی از امکانات بیشتر استرابری سرور</b> وارد <tt>تاپیک کانال استرابری و یا وبسایت ما شوید</tt></p>
+                <p>
+                    <img width="23" height="23" src="https://img.icons8.com/external-smashingstocks-hand-drawn-black-smashing-stocks/99/external-Devil-emoji-and-smileys-smashingstocks-hand-drawn-black-smashing-stocks.png" alt="Devil Emoji">
+                    شلوغی نکن درحال رصدی
+                    <img width="23" height="23" src="https://img.icons8.com/external-smashingstocks-hand-drawn-black-smashing-stocks/99/external-Devil-emoji-and-smileys-smashingstocks-hand-drawn-black-smashing-stocks.png" alt="Devil Emoji">
+                </p>
+            </div>
+        </div>
+        <div class="footer">
+            &copy; 2024 Strawberry Server Bot. All rights reserved.
+            <br>
+            <a href="https://strawberryvps.com/" target="_blank">خانه</a>
+            <a href="https://bot.strawberryvps.com/io.php" target="_blank">مشاهده حجم و مدت زمان سرویس</a>
+            <a href="https://bot.strawberryvps.com/radar.php" target="_blank">رادار استرابری سرور</a>
+            <a href="https://strawberryvps.com/contact/" target="_blank">ارتباط با ما</a>
+        </div>
+    </div>
+    <canvas id="demo-canvas"></canvas>
+</div>
+
+    <!-- Include GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <!-- Animation Script -->
+    <script src="./bobres-bot/assets/animation.js"></script>
+</body>
+</html>
