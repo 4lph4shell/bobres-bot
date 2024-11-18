@@ -103,9 +103,9 @@ sudo systemctl restart apache2.service
 
 wait
 
-git clone https://github.com/4lph4shell/bobres-bot.git /var/www/html/Bobres-bot
-sudo chown -R www-data:www-data /var/www/html/Bobres-bot/
-sudo chmod -R 755 /var/www/html/Bobres-bot/
+git clone https://github.com/4lph4shell/bobres-bot.git /var/www/html/bobres-bot
+sudo chown -R www-data:www-data /var/www/html/bobres-bot/
+sudo chmod -R 755 /var/www/html/bobres-bot/
 echo -e "\n\033[33mBOBres-Bot config and script have been installed successfully\033[0m"
 
 wait
@@ -117,7 +117,7 @@ echo "Directory created: ${RANDOM_CODE}"
 echo "Folder created successfully!"
 
  cd /var/www/html/
- wget -O BOBres-Botpanel.zip https://github.com/4lph4shell/bobres-bot/releases/download/1.7.4.7/BOBres-Botpanel.zip
+ wget -O BOBres-Botpanel.zip https://github.com/4lph4shell/BOBres-Botpanel/archive/refs/heads/main.zip
 
  file_to_transfer="/var/www/html/BOBres-Botpanel.zip"
  destination_dir=$(find /var/www/html -type d -name "*${RANDOM_CODE}*" -print -quit)

@@ -111,7 +111,7 @@ do
 			echo "Folder created successfully!"
 			
 			 cd /var/www/html/
-			 wget -O BOBres-Botpanel.zip https://github.com/4lph4shell/bobres-bot/releases/download/10.2.5/BOBres-Botpanel.zip
+			 wget -O BOBres-Botpanel.zip https://github.com/4lph4shell/BOBres-Botpanel/archive/refs/heads/main.zip
 			
 			 file_to_transfer="/var/www/html/BOBres-Botpanel.zip"
 			 destination_dir=$(find /var/www/html -type d -name "*${RANDOM_CODE}*" -print -quit)
@@ -171,10 +171,10 @@ do
 
 			(crontab -l ; echo "0 */3 * * * ./dbbackupbobres.sh") | sort - | uniq - | crontab -
 			
-			wget https://raw.githubusercontent.com/4lph4shell/bobres-bot/main/dbbackupbobres.sh | chmod +x dbbackupbobres.sh
+			wget https://raw.githubusercontent.com/4lph4shell/bobres-bot/refs/heads/master/dbbackupbobres.sh | chmod +x dbbackupbobres.sh
 			./dbbackupbobres.sh
    
-			wget https://raw.githubusercontent.com/4lph4shell/bobres-bot/main/dbbackupbobres.sh | chmod +x dbbackupbobres.sh
+			wget https://raw.githubusercontent.com/4lph4shell/bobres-bot/refs/heads/master/dbbackupbobres.sh | chmod +x dbbackupbobres.sh
 			./dbbackupbobres.sh
 			
 			echo -e "\n\e[92m The backup settings have been successfully completed My 4lph4 LORD.\033[0m\n"
