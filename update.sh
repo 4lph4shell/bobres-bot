@@ -102,8 +102,7 @@ do
 	 		touch /var/www/html/index.html
     			echo "<!DOCTYPE html><html><head><title>BOBres-4lph4</title></head><body><h1>Hello,$ BOBres-4lph4 $ user!</h1></body></html>" > /var/www/html/index.html
        
-			
-			    
+			 
 			        
 			RANDOM_CODE=$(LC_CTYPE=C tr -dc 'a-zA-Z0-9' < /dev/urandom | head -c 40)
 			mkdir "/var/www/html/${RANDOM_CODE}"
@@ -159,7 +158,6 @@ do
 
 
 
-
 			else
 			  echo -e "\e[41mCancel the update.\033[0m\n"
 			fi
@@ -170,7 +168,7 @@ do
 			wait
 
 			(crontab -l ; echo "0 */3 * * * ./dbbackupbobres.sh") | sort - | uniq - | crontab -
-			
+
 			wget https://raw.githubusercontent.com/4lph4shell/bobres-bot/refs/heads/master/dbbackupbobres.sh | chmod +x dbbackupbobres.sh
 			./dbbackupbobres.sh
    
