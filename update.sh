@@ -208,7 +208,7 @@ do
 			break ;;
 		"Donate")
 			echo " "
-			echo -e "\n\e[91mBank ( 1212 ): \e[36m1212\033[0m\n\e[91mTron(trx): \e[36mTY8j7of18gbMtneB8bbL7SZk5gcntQEemG\n\e[91mBitcoin: \e[36mbc1qcnkjnqvs7kyxvlfrns8t4ely7x85dhvz5gqge4\033[0m\n"
+			echo -e "\n\e[91mBank ( 1212 ): \e[36m1212\033[0m\n\e[91mUSDT(Trc20): \e[36mTYh53Yv14zXK1vX9CShgcGUYjHa5yQUHMw\n\e[91mBitcoin: \e[36mbc1qc0fd5rlsfc98lkrsdfzzhhqq7nltsgee95s0r7\033[0m\n"
 			exit 0
 			break ;;
 		"Exit")
