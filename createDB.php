@@ -115,7 +115,7 @@ $connection->query("CREATE TABLE `orders_list` (
   `status` int(11) NOT NULL,
   `date` varchar(50) NOT NULL,
   `notif` int(11) NOT NULL DEFAULT 0,
-  `rahgozar` int(10) DEFAULT 0,
+  `bobi` int(10) DEFAULT 0,
   `agent_bought` int(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci");
@@ -201,7 +201,7 @@ $connection->query("CREATE TABLE `server_plans` (
   `active` int(11) NOT NULL DEFAULT 0,
   `step` int(11) NOT NULL,
   `date` varchar(50) NOT NULL,
-  `rahgozar` int(10) DEFAULT 0,
+  `bobi` int(10) DEFAULT 0,
   `dest` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL,
   `serverNames` TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL,
   `spiderX` varchar(500) DEFAULT NULL,

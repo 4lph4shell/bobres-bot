@@ -1331,7 +1331,7 @@ function getPlanDetailsKeys($planId){
         $name=$pd['title'];
         $price=$pd['price'];
         $acount =$pd['acount'];
-        $rahgozar = $pd['rahgozar'];
+        $bobi = $pd['bobi'];
         $customPath = $pd['custom_path']==true?$buttonValues['on']:$buttonValues['off'];
         $dest = $pd['dest']??" ";
         $spiderX = $pd['spiderX']??" ";
@@ -1348,16 +1348,16 @@ function getPlanDetailsKeys($planId){
 
         $srvid= $pd['server_id'];
         $keyboard = [
-            ($rahgozar==true?[['text'=>"* نوع پلن: رهگذر *",'callback_data'=>'Alph4ir']]:[]),
-            ($rahgozar==true?[
+            ($bobi==true?[['text'=>"* نوع پلن: رهگذر *",'callback_data'=>'Alph4ir']]:[]),
+            ($bobi==true?[
                 ['text'=>$customPath,'callback_data'=>'changeCustomPath' . $id],
                 ['text'=>"Path Custom",'callback_data'=>'Alph4ir'],
                 ]:[]),
-            ($rahgozar==true?[
+            ($bobi==true?[
                 ['text'=>$customPort,'callback_data'=>'changeCustomPort' . $id],
                 ['text'=>"پورت دلخواه",'callback_data'=>'Alph4ir'],
                 ]:[]),
-            ($rahgozar==true?[
+            ($bobi==true?[
                 ['text'=>$customSni,'callback_data'=>'changeCustomSni' . $id],
                 ['text'=>"sni دلخواه",'callback_data'=>'Alph4ir'],
                 ]:[]),
@@ -1400,7 +1400,7 @@ function getUserOrderDetailKeys($id, $offset = 0){
         $stmt->execute();
         $respd = $stmt->get_result();
         $stmt->close();
-	    $rahgozar = $order['rahgozar'];
+	    $bobi = $order['bobi'];
         $agentBought = $order['agent_bought'];
         $isAgentBought = $agentBought == true?"بله":"نخیر";
 
@@ -1614,7 +1614,7 @@ function getUserOrderDetailKeys($id, $offset = 0){
                 }
                 else{
                     array_push($keyboard, 
-                        ($rahgozar == true?
+                        ($bobi == true?
                         [
                             ['text' => $protocol == 'vmess' ? '☑️ vmess' : 'vmess', 'callback_data' => "Alph4ir"],
                             ['text' => $protocol == 'vless' ? '☑️ vless' : 'vless', 'callback_data' => "Alph4ir"],
@@ -1685,7 +1685,7 @@ function getOrderDetailKeys($from_id, $id, $offset = 0){
         $stmt->execute();
         $respd = $stmt->get_result();
         $stmt->close();
-	    $rahgozar = $order['rahgozar'];
+	    $bobi = $order['bobi'];
         $agentBought = $order['agent_bought'];
 
     	if($respd){
@@ -1928,7 +1928,7 @@ function getOrderDetailKeys($from_id, $id, $offset = 0){
                     else{
                         if($serverType != "marzban"){
                             array_push($keyboard,
-                                ($rahgozar == true?
+                                ($bobi == true?
                                     [
                                         ['text' => $protocol == 'vmess' ? '☑️ vmess' : 'vmess', 'callback_data' => ($botState['changeProtocolState']=="on"?"changeAccProtocol{$fid}_{$id}_vmess":"changeProtocolIsDisable")],
                                         ['text' => $protocol == 'vless' ? '☑️ vless' : 'vless', 'callback_data' => ($botState['changeProtocolState']=="on"?"changeAccProtocol{$fid}_{$id}_vless":"changeProtocolIsDisable")]
@@ -1945,7 +1945,7 @@ function getOrderDetailKeys($from_id, $id, $offset = 0){
                         $temp = array();
                         if($price != 0 || $agentBought == true){
                             if($botState['renewAccountState']=="on") $temp[] = ['text' => $buttonValues['renew_config'], 'callback_data' => "renewAccount$id" ];
-                            if($botState['switchLocationState']=="on" && $rahgozar != true) $temp[] = ['text' => $buttonValues['change_config_location'], 'callback_data' => "switchLocation{$id}_{$server_id}_{$leftgb}_".$order['expire_date'] ];
+                            if($botState['switchLocationState']=="on" && $bobi != true) $temp[] = ['text' => $buttonValues['change_config_location'], 'callback_data' => "switchLocation{$id}_{$server_id}_{$leftgb}_".$order['expire_date'] ];
                         }
                         if(count($temp)>0) array_push($keyboard, $temp);
     
@@ -1961,7 +1961,7 @@ function getOrderDetailKeys($from_id, $id, $offset = 0){
                 $temp = array();
                 if($price != 0 || $agentBought == true){
                     if($botState['renewAccountState']=="on") $temp[] = ['text' => $buttonValues['renew_config'], 'callback_data' => "renewAccount$id" ];
-                    if($botState['switchLocationState']=="on" && $rahgozar != true) $temp[] = ['text' => $buttonValues['change_config_location'], 'callback_data' => "switchLocation{$id}_{$server_id}_{$leftgb}_".$order['expire_date'] ];
+                    if($botState['switchLocationState']=="on" && $bobi != true) $temp[] = ['text' => $buttonValues['change_config_location'], 'callback_data' => "switchLocation{$id}_{$server_id}_{$leftgb}_".$order['expire_date'] ];
                 }
                 if(count($temp)>0) array_push($keyboard, $temp);
     
@@ -3813,7 +3813,7 @@ function getNewHeaders($netType, $request_header, $response_header, $type){
     return $headers;
 
 }
-function getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id = 0, $rahgozar = false, $customPath = false, $customPort = 0, $customSni = null){
+function getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id = 0, $bobi = false, $customPath = false, $customPort = 0, $customSni = null){
     global $connection;
     $stmt = $connection->prepare("SELECT * FROM server_config WHERE id=?");
     $stmt->bind_param("i", $server_id);
@@ -3994,7 +3994,7 @@ function getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netT
         $server_ip = str_replace("\r","",($server_ip));
         if($inbound_id == 0) {
             if($protocol == 'vless'){
-                if($rahgozar == true){
+                if($bobi == true){
                     if(empty($host) && isset($hostMatch[1])) $host = $hostMatch[1];
                     
                     if(!empty($host)){
@@ -4010,14 +4010,14 @@ function getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netT
                     }
                 }
                 $psting = '';
-                if(($header_type == 'http' && $rahgozar != true && $netType != "grpc") || ($netType == "ws" && !empty($host) && $rahgozar != true)) $psting .= "&path=/&host=$host";;
+                if(($header_type == 'http' && $bobi != true && $netType != "grpc") || ($netType == "ws" && !empty($host) && $bobi != true)) $psting .= "&path=/&host=$host";;
                 if($netType == 'tcp' and $header_type == 'http') $psting .= '&headerType=http';
                 if(strlen($sni) > 1 && $tlsStatus != "reality") $psting .= "&sni=$sni";
                 if(strlen($serverName)>1 && $tlsStatus=="xtls") $server_ip = $serverName;
                 if($tlsStatus == "xtls" && $netType == "tcp") $psting .= "&flow=xtls-rprx-direct";
                 if($tlsStatus=="reality") $psting .= "&fp=$fp&pbk=$pbk&sni=$sni" . ($flow != ""?"&flow=$flow":"") . "&sid=$sid&spx=$spiderX";
-                if($rahgozar == true) $psting .= "&path=" . rawurlencode($path . ($customPath == true?"?ed=2048":"")) . "&encryption=none&host=$host";
-                $outputlink = "$protocol://$uniqid@$server_ip:" . ($rahgozar == true?($customPort!="0"?$customPort:"443"):$port) . "?type=$netType&security=" . ($rahgozar==true?"tls":$tlsStatus) . "{$psting}#$remark";
+                if($bobi == true) $psting .= "&path=" . rawurlencode($path . ($customPath == true?"?ed=2048":"")) . "&encryption=none&host=$host";
+                $outputlink = "$protocol://$uniqid@$server_ip:" . ($bobi == true?($customPort!="0"?$customPort:"443"):$port) . "?type=$netType&security=" . ($bobi==true?"tls":$tlsStatus) . "{$psting}#$remark";
                 if($netType == 'grpc' && $tlsStatus != "reality"){
                     if($tlsStatus == 'tls'){
                         $outputlink = "$protocol://$uniqid@$server_ip:$port?type=$netType&security=$tlsStatus&serviceName=$serviceName&sni=$sni#$remark";
@@ -4048,17 +4048,17 @@ function getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netT
                     "v"=> "2",
                     "ps"=> $remark,
                     "add"=> $server_ip,
-                    "port"=> $rahgozar == true?($customPort!=0?$customPort:443):$port,
+                    "port"=> $bobi == true?($customPort!=0?$customPort:443):$port,
                     "id"=> $uniqid,
                     "aid"=> 0,
                     "net"=> $netType,
                     "type"=> $kcpType ? $kcpType : "none",
-                    "host"=> ($rahgozar == true && empty($host))? $server_ip:(is_null($host) ? '' : $host),
-                    "path"=> ($rahgozar == true)?($path . ($customPath == true?"?ed=2048":"")):((is_null($path) and $path != '') ? '/' : (is_null($path) ? '' : $path)),
-                    "tls"=> $rahgozar == true?"tls":((is_null($tlsStatus)) ? 'none' : $tlsStatus)
+                    "host"=> ($bobi == true && empty($host))? $server_ip:(is_null($host) ? '' : $host),
+                    "path"=> ($bobi == true)?($path . ($customPath == true?"?ed=2048":"")):((is_null($path) and $path != '') ? '/' : (is_null($path) ? '' : $path)),
+                    "tls"=> $bobi == true?"tls":((is_null($tlsStatus)) ? 'none' : $tlsStatus)
                 ];
                 
-                if($rahgozar == true){
+                if($bobi == true){
                     if(empty($host) && isset($hostMatch[1])) $host = $hostMatch[1];
                     
                     if(!empty($host)){
@@ -4075,7 +4075,7 @@ function getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netT
                         $vmessArr['alpn'] = 'http/1.1';
                     }
                 }
-                if($header_type == 'http' && $rahgozar != true){
+                if($header_type == 'http' && $bobi != true){
                     $vmessArr['path'] = "/";
                     $vmessArr['type'] = $header_type;
                     $vmessArr['host'] = $host;
@@ -4095,7 +4095,7 @@ function getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netT
             }
         }else { 
             if($protocol == 'vless'){
-                if($rahgozar == true){
+                if($bobi == true){
                     if(empty($host) && isset($hostMatch[1])) $host = $hostMatch[1];
                     
                     if(!empty($host)){
@@ -4119,7 +4119,7 @@ function getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netT
                     if($header_type == "http") $psting .= "&path=/&host=$host";
                     $outputlink = "$protocol://$uniqid@$server_ip:$port?type=$netType&security=$tlsStatus{$psting}#$remark";
                 }elseif($netType == 'ws'){
-                    if($rahgozar == true)$outputlink = "$protocol://$uniqid@$server_ip:" . ($customPort!=0?$customPort:"443") . "?type=$netType&security=tls&path=" . rawurlencode($path . ($customPath == true?"?ed=2048":"")) . "&encryption=none&host=$host{$psting}#$remark";
+                    if($bobi == true)$outputlink = "$protocol://$uniqid@$server_ip:" . ($customPort!=0?$customPort:"443") . "?type=$netType&security=tls&path=" . rawurlencode($path . ($customPath == true?"?ed=2048":"")) . "&encryption=none&host=$host{$psting}#$remark";
                     else $outputlink = "$protocol://$uniqid@$server_ip:$port?type=$netType&security=$tlsStatus&path=/&host=$host{$psting}#$remark";
                 }
                 elseif($netType == 'kcp')
@@ -4155,16 +4155,16 @@ function getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netT
                     "v"=> "2",
                     "ps"=> $remark,
                     "add"=> $server_ip,
-                    "port"=> $rahgozar == true?($customPort!=0?$customPort:443):$port,
+                    "port"=> $bobi == true?($customPort!=0?$customPort:443):$port,
                     "id"=> $uniqid,
                     "aid"=> 0,
                     "net"=> $netType,
                     "type"=> ($header_type) ? $header_type : ($kcpType ? $kcpType : "none"),
-                    "host"=> ($rahgozar == true && empty($host))?$server_ip:(is_null($host) ? '' : $host),
-                    "path"=> ($rahgozar == true)?($path . ($customPath == true?"?ed=2048":"")) :((is_null($path) and $path != '') ? '/' : (is_null($path) ? '' : $path)),
-                    "tls"=> $rahgozar == true?"tls":((is_null($tlsStatus)) ? 'none' : $tlsStatus)
+                    "host"=> ($bobi == true && empty($host))?$server_ip:(is_null($host) ? '' : $host),
+                    "path"=> ($bobi == true)?($path . ($customPath == true?"?ed=2048":"")) :((is_null($path) and $path != '') ? '/' : (is_null($path) ? '' : $path)),
+                    "tls"=> $bobi == true?"tls":((is_null($tlsStatus)) ? 'none' : $tlsStatus)
                 ];
-                if($rahgozar == true){
+                if($bobi == true){
                     if(empty($host) && isset($hostMatch[1])) $host = $hostMatch[1];
                     
                     if(!empty($host)){
@@ -4201,7 +4201,7 @@ function getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netT
 
     return $outputLink;
 }
-function updateConfig($server_id, $inboundId, $protocol, $netType = 'tcp', $security = 'none', $rahgozar = false){
+function updateConfig($server_id, $inboundId, $protocol, $netType = 'tcp', $security = 'none', $bobi = false){
     global $connection;
     $stmt = $connection->prepare("SELECT * FROM server_config WHERE id=?");
     $stmt->bind_param("i", $server_id);
@@ -4349,7 +4349,7 @@ function updateConfig($server_id, $inboundId, $protocol, $netType = 'tcp', $secu
             'sniffing' => $row->sniffing);
     }else{
         if($netType != "grpc"){
-            if($rahgozar == true){
+            if($bobi == true){
                 $wsSettings = '{
                       "network": "ws",
                       "security": "none",
@@ -4492,7 +4492,7 @@ function updateConfig($server_id, $inboundId, $protocol, $netType = 'tcp', $secu
     curl_close($curl);
     return $response = json_decode($response);
 }
-function editInbound($server_id, $uniqid, $uuid, $protocol, $netType = 'tcp', $security = 'none', $rahgozar = false){
+function editInbound($server_id, $uniqid, $uuid, $protocol, $netType = 'tcp', $security = 'none', $bobi = false){
     global $connection;
     $stmt = $connection->prepare("SELECT * FROM server_config WHERE id=?");
     $stmt->bind_param("i", $server_id);
@@ -4711,7 +4711,7 @@ function editInbound($server_id, $uniqid, $uuid, $protocol, $netType = 'tcp', $s
             'sniffing' => $row->sniffing);
     }else{
         if($netType != "grpc"){
-            if($rahgozar == true){
+            if($bobi == true){
                 $wsSettings = '{
                       "network": "ws",
                       "security": "none",
@@ -5565,7 +5565,7 @@ function getNewCert($server_id){
     curl_close($curl);
     return $response = json_decode($response);
 }
-function addUser($server_id, $client_id, $protocol, $port, $expiryTime, $remark, $volume, $netType, $security = 'none', $rahgozar = false, $planId = null){
+function addUser($server_id, $client_id, $protocol, $port, $expiryTime, $remark, $volume, $netType, $security = 'none', $bobi = false, $planId = null){
     global $connection;
     $stmt = $connection->prepare("SELECT * FROM server_config WHERE id=?");
     $stmt->bind_param("i", $server_id);
@@ -5781,7 +5781,7 @@ function addUser($server_id, $client_id, $protocol, $port, $expiryTime, $remark,
     }');
     }else {
 //-------------------------------------- vmess vless -------------------------------//
-        if($rahgozar == true){
+        if($bobi == true){
             $wsSettings = '{
                   "network": "ws",
                   "security": "none",

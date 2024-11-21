@@ -20,7 +20,7 @@ $token = $_GET['token'];
         $server_id = $info['server_id'];
         $inbound_id = $info['inbound_id'];
         $protocol = $info['protocol'];
-        $rahgozar = $info['rahgozar'];
+        $bobi = $info['bobi'];
         
         $file_id = $info['fileid'];
         
@@ -105,7 +105,7 @@ $token = $_GET['token'];
         else $res = editClientRemark($server_id, $clientInbound, $uuid, $newRemark);
 
         if($res->success){
-            $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $newRemark, $port, $netType, $inbound_id, $rahgozar, $customPath, $customPort, $customSni);
+            $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $newRemark, $port, $netType, $inbound_id, $bobi, $customPath, $customPort, $customSni);
             $stmt = $connection->prepare("UPDATE `orders_list` SET `link` = ?, `remark` = ? WHERE `token` = ?");
             $newLink = json_encode($vraylink);
             $stmt->bind_param("sss", $newLink, $newRemark, $token);

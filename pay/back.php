@@ -238,7 +238,7 @@ if($payType == "BUY_SUB"){
     $protocol = $file_detail['protocol'];
     $inbound_id = $file_detail['inbound_id'];
     $limitip = $file_detail['limitip'];
-    $rahgozar = $file_detail['rahgozar'];
+    $bobi = $file_detail['bobi'];
     $customPath = $file_detail['custom_path'];
     $customPort = $file_detail['custom_port'];
     $customSni = $file_detail['custom_sni'];
@@ -335,12 +335,12 @@ if($payType == "BUY_SUB"){
                     }
                 }
             }else{
-                $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $rahgozar, $fid); 
+                $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $bobi, $fid); 
                 if(! $response->success){
                     if(strstr($response->msg, "Duplicate email")) $remark .= RandomString();
                     elseif(strstr($response->msg, "Port already exists")) $port = rand(1111,65000);
     
-                    $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $rahgozar, $fid);
+                    $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $bobi, $fid);
                 }
             }
         }else {
@@ -395,7 +395,7 @@ if($payType == "BUY_SUB"){
             $vray_link = json_encode($response->vray_links);
         }
         else{
-            $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $rahgozar, $customPath, $customPort, $customSni);
+            $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $bobi, $customPath, $customPort, $customSni);
             $token = RandomString(30);
             $subLink = $botState['subLinkState']=="on"?$botUrl . "settings/subLink.php?token=" . $token:"";
             $vray_link = json_encode($vraylink);
@@ -451,9 +451,9 @@ if($payType == "BUY_SUB"){
         $date = time();
         
     	$stmt = $connection->prepare("INSERT INTO `orders_list` 
-    	    (`userid`, `token`, `transid`, `fileid`, `server_id`, `inbound_id`, `remark`, `uuid`, `protocol`, `expire_date`, `link`, `amount`, `status`, `date`, `notif`, `rahgozar`, `agent_bought`)
+    	    (`userid`, `token`, `transid`, `fileid`, `server_id`, `inbound_id`, `remark`, `uuid`, `protocol`, `expire_date`, `link`, `amount`, `status`, `date`, `notif`, `bobi`, `agent_bought`)
     	    VALUES (?, ?, '', ?, ?, ?, ?, ?, ?, ?, ?, ?,1, ?, 0, ?, ?);");
-        $stmt->bind_param("ssiiisssisiiii", $user_id, $token, $fid, $server_id, $inbound_id, $remark, $uniqid, $protocol, $expire_date, $vray_link, $eachPrice, $date, $rahgozar, $agentBought);        
+        $stmt->bind_param("ssiiisssisiiii", $user_id, $token, $fid, $server_id, $inbound_id, $remark, $uniqid, $protocol, $expire_date, $vray_link, $eachPrice, $date, $bobi, $agentBought);        
         $stmt->execute();
         $order = $stmt->get_result(); 
         $stmt->close();
