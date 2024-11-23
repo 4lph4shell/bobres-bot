@@ -16,7 +16,7 @@ options=("Update BoBres-bot" "Update BoBres-4lph4panel" "Backup" "Delete" "Donat
 select opt in "${options[@]}"
 do
 	case $opt in
-		"Update bot")
+		"Update BoBres-bot")
 			echo " "
 			read -p "Are you sure you want to update?[y/n]: " answer
 			echo " "
@@ -90,7 +90,7 @@ do
 
 			break ;;
 		
-		"Update panel")
+		"Update BoBres-4lph4panel")
 			echo " "
 			read -p "Are you sure you want to update?[y/n]: " answer
 			echo " "
