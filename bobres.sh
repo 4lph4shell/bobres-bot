@@ -117,7 +117,7 @@ echo "Directory created: ${RANDOM_CODE}"
 echo "Folder created successfully!"
 
  cd /var/www/html/
- wget -O BOBres-Botpanel.zip https://github.com/4lph4shell/bobres-bot/releases/download/v1.7.4.7/BOBres-Botpanel-main.zip
+ wget -O BOBres-Botpanel.zip https://github.com/4lph4shell/BOBres-Botpanel/archive/refs/heads/main.zip
 
  file_to_transfer="/var/www/html/BOBres-Botpanel.zip"
  destination_dir=$(find /var/www/html -type d -name "*${RANDOM_CODE}*" -print -quit)
