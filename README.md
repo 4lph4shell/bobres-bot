@@ -5,6 +5,8 @@
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://github.com/4lph4shell/4lph4shell/blob/master/Animation%20-%201732459000780.gif">
       <img  src="https://github.com/4lph4shell/4lph4shell/blob/master/Animation%20-%201732459000780.gif">
+            <source media="(prefers-color-scheme: dark)" srcset="https://github.com/4lph4shell/4lph4shell/blob/master/Animation%20-%201732459456331.gif">
+      <img  src="https://github.com/4lph4shell/4lph4shell/blob/master/Animation%20-%201732459456331.gif">
     </picture>
   </a>
 </p> 
