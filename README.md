@@ -3,8 +3,8 @@
 <p align="center">
   <a href="https://github.com/4lph4shell/bobres-bot" target="_blank" rel="noopener noreferrer">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/4lph4shell/bobres-bot/blob/master/assets/logo.png">
-      <img width="200" height="200" src="https://github.com/4lph4shell/bobres-bot/blob/master/assets/logo.png">
+      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/4lph4shell/4lph4shell/blob/master/Animation%20-%201732459000780.gif">
+      <img width="200" height="200" src="https://github.com/4lph4shell/4lph4shell/blob/master/Animation%20-%201732459000780.gif">
     </picture>
   </a>
 </p> 
