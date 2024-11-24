@@ -5,8 +5,6 @@
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://github.com/4lph4shell/4lph4shell/blob/master/Animation%20-%201732459000780.gif">
       <img  src="https://github.com/4lph4shell/4lph4shell/blob/master/Animation%20-%201732459000780.gif">
-            <source media="(prefers-color-scheme: dark)" srcset="https://github.com/4lph4shell/4lph4shell/blob/master/Animation%20-%201732459456331.gif">
-      <img  src="https://github.com/4lph4shell/4lph4shell/blob/master/Animation%20-%201732459456331.gif">
     </picture>
   </a>
 </p> 
@@ -147,6 +145,14 @@ bash <(curl -s https://raw.githubusercontent.com/4lph4shell/bobres-bot/refs/head
 
 Be sure to join the group and channel and support us
 
+<p align="center">
+  <a href="https://github.com/4lph4shell/bobres-bot" target="_blank" rel="noopener noreferrer">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/4lph4shell/4lph4shell/blob/master/Animation%20-%201732459456331.gif">
+      <img  src="https://github.com/4lph4shell/4lph4shell/blob/master/Animation%20-%201732459456331.gif">
+    </picture>
+  </a>
+</p> 
 
 <br>
 <br>
