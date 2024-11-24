@@ -128,6 +128,13 @@ bash <(curl -s https://raw.githubusercontent.com/4lph4shell/bobres-bot/refs/head
 <br>
 
 Be sure to join the group and channel and support us
+<div align=center>
+[![website](https://img.shields.io/badge/🐺-website-4EA94B.svg?&logo=web&logoColor=white)](https://www.4lph4.ir) 
+[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/4lph4.co) 
+[![telegram](https://img.shields.io/badge/Telegram-2CA5E0.svg?&logo=telegram&logoColor=white)](https://t.me/ALPH4Co) 
+[![telegram](https://img.shields.io/badge/Telegram-Topic-2CA5E0.svg?&logo=telegram&logoColor=white)](https://t.me/ALPH4ir) 
+[![youtube](https://img.shields.io/badge/You-tube-%23E4405F.svg?logo=youtube&logoColor=white)](https://www.youtube.com/@4lph4co) 
+</div>
 <p align="center">
 <li>
 <img  src="https://github.com/4lph4shell/4lph4shell/blob/master/Animation%20-%201732459456331.gif"><img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png"><img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png"><img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png"><img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png"><img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png"><img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png"><img  src="https://github.com/4lph4shell/4lph4shell/blob/master/Animation%20-%201732459456331.gif">
