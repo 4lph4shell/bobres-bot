@@ -27,12 +27,6 @@ BOBres is a powerful and professional robot that supports several types of panel
 </div>
 
 <br>
-<br>
-    <a align="center">
-        <img src="https://github.com/BOBresdev/BOBres-Botpanel/assets/27927279/f6635ea5-ab26-4c64-a7b8-952203f79763" />
-    </a>     
-<br>
-<br>
 
 # Installation Ubuntu-20.4 
 
