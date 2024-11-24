@@ -1,17 +1,5 @@
 # bobres-bot
 
-<p align="center">
-  <a href="https://github.com/4lph4shell/bobres-bot" target="_blank" rel="noopener noreferrer">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/4lph4shell/4lph4shell/blob/master/Animation%20-%201732459000780.gif">
-      <img  src="https://github.com/4lph4shell/4lph4shell/blob/master/Animation%20-%201732459000780.gif">
-    </picture>
-  </a>
-</p> 
-
-
-
-
 
 <h1 align="center"/>Welcome to BOBres</h1>
 <p align="center">
