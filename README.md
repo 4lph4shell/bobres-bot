@@ -15,7 +15,7 @@
 
 <h1 align="center"/>Welcome to BOBres</h1>
 <li>
-      <img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png">      <img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png">      <img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png">      <img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png">
+  <img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png"><img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png"> <img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png">      <img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png"><img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png"><img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png"><img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png">
 </li>
 <p align="center">
 Easy to sell with <a href="https://github.com/4lph4shell/bobres-bot">BOBres-Botpanel</a> easy install with few clicks
