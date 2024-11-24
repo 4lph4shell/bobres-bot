@@ -14,9 +14,11 @@
 
 
 <h1 align="center"/>Welcome to BOBres</h1>
+<p align="center">
 <li>
-<img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png"><img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png"><img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png"><img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png"><img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png"><img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png"><img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png"><img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png"><img  src="https://github.com/4lph4shell/4lph4shell/blob/master/Animation%20-%201732459000780.gif">
+<img  src="https://github.com/4lph4shell/4lph4shell/blob/master/Animation%20-%201732459000780.gif"><img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png"><img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png"><img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png"><img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png"><img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png"><img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png"><img  src="https://github.com/4lph4shell/BOBres-Botpanel/blob/main/icons/breaver.png"><img  src="https://github.com/4lph4shell/4lph4shell/blob/master/Animation%20-%201732459000780.gif">
 </li>
+  </p> 
 <p align="center">
 Easy to sell with <a href="https://github.com/4lph4shell/bobres-bot">BOBres-Botpanel</a> easy install with few clicks
 </p>
