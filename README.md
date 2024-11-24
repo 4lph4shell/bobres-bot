@@ -1,5 +1,3 @@
-# bobres-bot
-
 
 <h1 align="center"/>Welcome to BOBres</h1>
 <div align="center">
