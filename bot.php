@@ -1166,7 +1166,7 @@ if (preg_match('/^createAccAmount(\d+)_(\d+)_(\d+)/', $userInfo['step'], $match)
     $volume = $match[3];
     $protocol = $file_detail['protocol'];
     $price = $file_detail['price'];
-    $bobi = $file_detail['bobi'];
+    $rahgozar = $file_detail['rahgozar'];
     $customPath = $file_detail['custom_path'];
     $customPort = $file_detail['custom_port'];
     $customSni = $file_detail['custom_sni'];
@@ -1228,7 +1228,7 @@ if (preg_match('/^createAccAmount(\d+)_(\d+)_(\d+)/', $userInfo['step'], $match)
 
 
     $stmt = $connection->prepare("INSERT INTO `orders_list` 
-	    (`userid`, `token`, `transid`, `fileid`, `server_id`, `inbound_id`, `remark`, `uuid`, `protocol`, `expire_date`, `link`, `amount`, `status`, `date`, `notif`, `bobi`)
+	    (`userid`, `token`, `transid`, `fileid`, `server_id`, `inbound_id`, `remark`, `uuid`, `protocol`, `expire_date`, `link`, `amount`, `status`, `date`, `notif`, `rahgozar`)
 	    VALUES (?, ?, '', ?, ?, ?, ?, ?, ?, ?, ?, ?,1, ?, 0, ?);");
     define('IMAGE_WIDTH', 540);
     define('IMAGE_HEIGHT', 540);
@@ -1259,13 +1259,13 @@ if (preg_match('/^createAccAmount(\d+)_(\d+)_(\d+)/', $userInfo['step'], $match)
                     }
                 }
             } else {
-                $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $bobi, $fid);
+                $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $rahgozar, $fid);
 
                 if (!$response->success) {
                     if (strstr($response->msg, "Duplicate email")) $remark .= RandomString();
                     elseif (strstr($response->msg, "Port already exists")) $port = rand(1111, 65000);
 
-                    $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $bobi, $fid);
+                    $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $rahgozar, $fid);
                 }
             }
         } else {
@@ -1298,7 +1298,7 @@ if (preg_match('/^createAccAmount(\d+)_(\d+)_(\d+)/', $userInfo['step'], $match)
             $vray_link = json_encode($response->vray_links);
         } else {
             $token = RandomString(30);
-            $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $bobi, $customPath, $customPort, $customSni);
+            $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $rahgozar, $customPath, $customPort, $customSni);
             $subLink = $botState['subLinkState'] == "on" ? $botUrl . "settings/subLink.php?token=" . $token : "";
             $vray_link = json_encode($vraylink);
         }
@@ -1328,7 +1328,7 @@ if (preg_match('/^createAccAmount(\d+)_(\d+)_(\d+)/', $userInfo['step'], $match)
             sendPhoto($botUrl . $file, $acc_text, json_encode(['inline_keyboard' => [[['text' => $buttonValues['back_to_main'], 'callback_data' => "mainMenu"]]]]), "HTML", $uid);
             unlink($file);
         }
-        $stmt->bind_param("ssiiisssisiii", $uid, $token, $fid, $server_id, $inbound_id, $remark, $uniqid, $protocol, $expire_date, $vray_link, $price, $date, $bobi);
+        $stmt->bind_param("ssiiisssisiii", $uid, $token, $fid, $server_id, $inbound_id, $remark, $uniqid, $protocol, $expire_date, $vray_link, $price, $date, $rahgozar);
         $stmt->execute();
     }
     $stmt->close();
@@ -1605,7 +1605,7 @@ if (preg_match('/havePaiedWeSwap(.*)/', $data, $match)) {
                 $acount = $file_detail['acount'];
                 $inbound_id = $file_detail['inbound_id'];
                 $limitip = $file_detail['limitip'];
-                $bobi = $file_detail['bobi'];
+                $rahgozar = $file_detail['rahgozar'];
                 $customPath = $file_detail['custom_path'];
                 $customPort = $file_detail['custom_port'];
                 $customSni = $file_detail['custom_sni'];
@@ -1684,12 +1684,12 @@ if (preg_match('/havePaiedWeSwap(.*)/', $data, $match)) {
                                 }
                             }
                         } else {
-                            $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $bobi, $fid);
+                            $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $rahgozar, $fid);
                             if (!$response->success) {
                                 if (strstr($response->msg, "Duplicate email")) $remark .= RandomString();
                                 elseif (strstr($response->msg, "Port already exists")) $port = rand(1111, 65000);
 
-                                $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $bobi, $fid);
+                                $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $rahgozar, $fid);
                             }
                         }
                     } else {
@@ -1724,7 +1724,7 @@ if (preg_match('/havePaiedWeSwap(.*)/', $data, $match)) {
                         $token = RandomString(30);
                         $subLink = $botState['subLinkState'] == "on" ? $botUrl . "settings/subLink.php?token=" . $token : "";
 
-                        $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $bobi, $customPath, $customPort, $customSni);
+                        $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $rahgozar, $customPath, $customPort, $customSni);
                         $vray_link = json_encode($vraylink);
                     }
                     foreach ($vraylink as $link) {
@@ -1777,9 +1777,9 @@ if (preg_match('/havePaiedWeSwap(.*)/', $data, $match)) {
                     $agentBought = $payInfo['agent_bought'];
 
                     $stmt = $connection->prepare("INSERT INTO `orders_list` 
-            (`userid`, `token`, `transid`, `fileid`, `server_id`, `inbound_id`, `remark`, `uuid`, `protocol`, `expire_date`, `link`, `amount`, `status`, `date`, `notif`, `bobi`, `agent_bought`)
+            (`userid`, `token`, `transid`, `fileid`, `server_id`, `inbound_id`, `remark`, `uuid`, `protocol`, `expire_date`, `link`, `amount`, `status`, `date`, `notif`, `rahgozar`, `agent_bought`)
             VALUES (?, ?, '', ?, ?, ?, ?, ?, ?, ?, ?, ?,1, ?, 0, ?, ?);");
-                    $stmt->bind_param("ssiiisssisiiii", $uid, $token, $fid, $server_id, $inbound_id, $remark, $uniqid, $protocol, $expire_date, $vray_link, $eachPrice, $date, $bobi, $agentBought);
+                    $stmt->bind_param("ssiiisssisiiii", $uid, $token, $fid, $server_id, $inbound_id, $remark, $uniqid, $protocol, $expire_date, $vray_link, $eachPrice, $date, $rahgozar, $agentBought);
                     $stmt->execute();
                     $order = $stmt->get_result();
                     $stmt->close();
@@ -2857,7 +2857,7 @@ if (preg_match('/payCustomWithWallet(.*)/', $data, $match)) {
     $acount = $file_detail['acount'];
     $inbound_id = $file_detail['inbound_id'];
     $limitip = $file_detail['limitip'];
-    $bobi = $file_detail['bobi'];
+    $rahgozar = $file_detail['rahgozar'];
     $customPath = $file_detail['custom_path'];
     $customPort = $file_detail['custom_port'];
     $customSni = $file_detail['custom_sni'];
@@ -2923,12 +2923,12 @@ if (preg_match('/payCustomWithWallet(.*)/', $data, $match)) {
                 }
             }
         } else {
-            $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $bobi, $fid);
+            $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $rahgozar, $fid);
             if (!$response->success) {
                 if (strstr($response->msg, "Duplicate email")) $remark .= RandomString();
                 elseif (strstr($response->msg, "Port already exists")) $port = rand(1111, 65000);
 
-                $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $bobi, $fid);
+                $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $rahgozar, $fid);
             }
         }
     } else {
@@ -2969,7 +2969,7 @@ if (preg_match('/payCustomWithWallet(.*)/', $data, $match)) {
         $token = RandomString(30);
         $subLink = $botState['subLinkState'] == "on" ? $botUrl . "settings/subLink.php?token=" . $token : "";
 
-        $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $bobi, $customPath, $customPort, $customSni);
+        $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $rahgozar, $customPath, $customPort, $customSni);
         $vray_link = json_encode($vraylink);
     }
     delMessage();
@@ -3036,9 +3036,9 @@ if (preg_match('/payCustomWithWallet(.*)/', $data, $match)) {
 
     $agentBought = $payInfo['agent_bought'];
     $stmt = $connection->prepare("INSERT INTO `orders_list` 
-	    (`userid`, `token`, `transid`, `fileid`, `server_id`, `inbound_id`, `remark`, `uuid`, `protocol`, `expire_date`, `link`, `amount`, `status`, `date`, `notif`, `bobi`, `agent_bought`)
+	    (`userid`, `token`, `transid`, `fileid`, `server_id`, `inbound_id`, `remark`, `uuid`, `protocol`, `expire_date`, `link`, `amount`, `status`, `date`, `notif`, `rahgozar`, `agent_bought`)
 	    VALUES (?, ?, '', ?, ?, ?, ?, ?, ?, ?, ?, ?,1, ?, 0, ?, ?);");
-    $stmt->bind_param("ssiiisssisiiii", $uid, $token, $fid, $server_id, $inbound_id, $remark, $uniqid, $protocol, $expire_date, $vray_link, $price, $date, $bobi, $agentBought);
+    $stmt->bind_param("ssiiisssisiiii", $uid, $token, $fid, $server_id, $inbound_id, $remark, $uniqid, $protocol, $expire_date, $vray_link, $price, $date, $rahgozar, $agentBought);
     $stmt->execute();
     $order = $stmt->get_result();
     $stmt->close();
@@ -3282,7 +3282,7 @@ if (preg_match('/accCustom(.*)/', $data, $match) and $text != $buttonValues['can
     $acount = $file_detail['acount'];
     $inbound_id = $file_detail['inbound_id'];
     $limitip = $file_detail['limitip'];
-    $bobi = $file_detail['bobi'];
+    $rahgozar = $file_detail['rahgozar'];
 
     if ($acount == 0 and $inbound_id != 0) {
         alert($mainValues['out_of_connection_capacity']);
@@ -3344,12 +3344,12 @@ if (preg_match('/accCustom(.*)/', $data, $match) and $text != $buttonValues['can
                 }
             }
         } else {
-            $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $bobi, $fid);
+            $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $rahgozar, $fid);
             if (!$response->success) {
                 if (strstr($response->msg, "Duplicate email")) $remark .= RandomString();
                 elseif (strstr($response->msg, "Port already exists")) $port = rand(1111, 65000);
 
-                $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $bobi, $fid);
+                $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $rahgozar, $fid);
             }
         }
     } else {
@@ -3438,9 +3438,9 @@ if (preg_match('/accCustom(.*)/', $data, $match) and $text != $buttonValues['can
 
     $agentBought = $payInfo['agent_bought'];
     $stmt = $connection->prepare("INSERT INTO `orders_list` 
-	    (`userid`, `token`, `transid`, `fileid`, `server_id`, `inbound_id`, `remark`, `uuid`, `protocol`, `expire_date`, `link`, `amount`, `status`, `date`, `notif`, `bobi`, `agent_bought`)
+	    (`userid`, `token`, `transid`, `fileid`, `server_id`, `inbound_id`, `remark`, `uuid`, `protocol`, `expire_date`, `link`, `amount`, `status`, `date`, `notif`, `rahgozar`, `agent_bought`)
 	    VALUES (?, ?, '', ?, ?, ?, ?, ?, ?, ?, ?, ?,1, ?, 0, ?, ?);");
-    $stmt->bind_param("ssiiisssisiiii", $uid, $token, $fid, $server_id, $inbound_id, $remark, $uniqid, $protocol, $expire_date, $vray_link, $price, $date, $bobi, $agentBought);
+    $stmt->bind_param("ssiiisssisiiii", $uid, $token, $fid, $server_id, $inbound_id, $remark, $uniqid, $protocol, $expire_date, $vray_link, $price, $date, $rahgozar, $agentBought);
     $stmt->execute();
     $order = $stmt->get_result();
     $stmt->close();
@@ -3535,7 +3535,7 @@ if (preg_match('/payWithWallet(.*)/', $data, $match)) {
     $type = $file_detail['type'];
     $volume = $file_detail['volume'];
     $protocol = $file_detail['protocol'];
-    $bobi = $file_detail['bobi'];
+    $rahgozar = $file_detail['rahgozar'];
     $customPath = $file_detail['custom_path'];
     $price = $payInfo['price'];
     $customPort = $file_detail['custom_port'];
@@ -3672,12 +3672,12 @@ if (preg_match('/payWithWallet(.*)/', $data, $match)) {
                         }
                     }
                 } else {
-                    $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $bobi, $fid);
+                    $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $rahgozar, $fid);
                     if (!$response->success) {
                         if (strstr($response->msg, "Duplicate email")) $remark .= RandomString();
                         elseif (strstr($response->msg, "Port already exists")) $port = rand(1111, 65000);
 
-                        $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $bobi, $fid);
+                        $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $rahgozar, $fid);
                     }
                 }
             } else {
@@ -3710,7 +3710,7 @@ if (preg_match('/payWithWallet(.*)/', $data, $match)) {
                 $vray_link = json_encode($response->vray_links);
             } else {
                 $token = RandomString(30);
-                $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $bobi, $customPath, $customPort, $customSni);
+                $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $rahgozar, $customPath, $customPort, $customSni);
                 $vray_link = json_encode($vraylink);
                 $subLink = $botState['subLinkState'] == "on" ? $botUrl . "settings/subLink.php?token=" . $token : "";
             }
@@ -3758,9 +3758,9 @@ if (preg_match('/payWithWallet(.*)/', $data, $match)) {
             }
 
             $stmt = $connection->prepare("INSERT INTO `orders_list` 
-        	    (`userid`, `token`, `transid`, `fileid`, `server_id`, `inbound_id`, `remark`, `uuid`, `protocol`, `expire_date`, `link`, `amount`, `status`, `date`, `notif`, `bobi`, `agent_bought`)
+        	    (`userid`, `token`, `transid`, `fileid`, `server_id`, `inbound_id`, `remark`, `uuid`, `protocol`, `expire_date`, `link`, `amount`, `status`, `date`, `notif`, `rahgozar`, `agent_bought`)
         	    VALUES (?, ?, '', ?, ?, ?, ?, ?, ?, ?, ?, ?,1, ?, 0, ?, ?);");
-            $stmt->bind_param("ssiiisssisiiii", $uid, $token, $fid, $server_id, $inbound_id, $remark, $uniqid, $protocol, $expire_date, $vray_link, $eachPrice, $date, $bobi, $agent_bought);
+            $stmt->bind_param("ssiiisssisiiii", $uid, $token, $fid, $server_id, $inbound_id, $remark, $uniqid, $protocol, $expire_date, $vray_link, $eachPrice, $date, $rahgozar, $agent_bought);
             $stmt->execute();
             $order = $stmt->get_result();
             $stmt->close();
@@ -4105,7 +4105,7 @@ if (preg_match('/accept(.*)/', $data, $match) and $text != $buttonValues['cancel
     $acount = $file_detail['acount'];
     $inbound_id = $file_detail['inbound_id'];
     $limitip = $file_detail['limitip'];
-    $bobi = $file_detail['bobi'];
+    $rahgozar = $file_detail['rahgozar'];
     $customPath = $file_detail['custom_path'];
     $customPort = $file_detail['custom_port'];
     $customSni = $file_detail['custom_sni'];
@@ -4215,12 +4215,12 @@ if (preg_match('/accept(.*)/', $data, $match) and $text != $buttonValues['cancel
                         }
                     }
                 } else {
-                    $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $bobi, $fid);
+                    $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $rahgozar, $fid);
                     if (!$response->success) {
                         if (strstr($response->msg, "Duplicate email")) $remark .= RandomString();
                         elseif (strstr($response->msg, "Port already exists")) $port = rand(1111, 65000);
 
-                        $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $bobi, $fid);
+                        $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $rahgozar, $fid);
                     }
                 }
             } else {
@@ -4254,7 +4254,7 @@ if (preg_match('/accept(.*)/', $data, $match) and $text != $buttonValues['cancel
                 $token = RandomString(30);
                 $subLink = $botState['subLinkState'] == "on" ? $botUrl . "settings/subLink.php?token=" . $token : "";
 
-                $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $bobi, $customPath, $customPort, $customSni);
+                $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $rahgozar, $customPath, $customPort, $customSni);
                 $vray_link = json_encode($vraylink);
             }
             foreach ($vraylink as $link) {
@@ -4302,9 +4302,9 @@ if (preg_match('/accept(.*)/', $data, $match) and $text != $buttonValues['cancel
             $agent_bought = $payInfo['agent_bought'];
 
             $stmt = $connection->prepare("INSERT INTO `orders_list` 
-        	    (`userid`, `token`, `transid`, `fileid`, `server_id`, `inbound_id`, `remark`, `uuid`, `protocol`, `expire_date`, `link`, `amount`, `status`, `date`, `notif`, `bobi`, `agent_bought`)
+        	    (`userid`, `token`, `transid`, `fileid`, `server_id`, `inbound_id`, `remark`, `uuid`, `protocol`, `expire_date`, `link`, `amount`, `status`, `date`, `notif`, `rahgozar`, `agent_bought`)
         	    VALUES (?, ?, '', ?, ?, ?, ?, ?, ?, ?, ?, ?,1, ?, 0, ?, ?);");
-            $stmt->bind_param("ssiiisssisiiii", $uid, $token, $fid, $server_id, $inbound_id, $remark, $uniqid, $protocol, $expire_date, $vray_link, $eachPrice, $date, $bobi, $agent_bought);
+            $stmt->bind_param("ssiiisssisiiii", $uid, $token, $fid, $server_id, $inbound_id, $remark, $uniqid, $protocol, $expire_date, $vray_link, $eachPrice, $date, $rahgozar, $agent_bought);
             $stmt->execute();
             $order = $stmt->get_result();
             $stmt->close();
@@ -5607,7 +5607,7 @@ if (preg_match('/freeTrial(\d+)_(?<buyType>\w+)/', $data, $match)) {
     $inbound_id = $file_detail['inbound_id'];
     $limitip = $file_detail['limitip'];
     $netType = $file_detail['type'];
-    $bobi = $file_detail['bobi'];
+    $rahgozar = $file_detail['rahgozar'];
     $customPath = $file_detail['custom_path'];
     $customPort = $file_detail['custom_port'];
     $customSni = $file_detail['custom_sni'];
@@ -5691,12 +5691,12 @@ if (preg_match('/freeTrial(\d+)_(?<buyType>\w+)/', $data, $match)) {
                 }
             }
         } else {
-            $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $bobi, $id);
+            $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $rahgozar, $id);
             if (!$response->success) {
                 if (strstr($response->msg, "Duplicate email")) $remark .= RandomString();
                 elseif (strstr($response->msg, "Port already exists")) $port = rand(1111, 65000);
 
-                $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $bobi, $id);
+                $response = addUser($server_id, $uniqid, $protocol, $port, $expire_microdate, $remark, $volume, $netType, 'none', $rahgozar, $id);
             }
         }
     } else {
@@ -5731,7 +5731,7 @@ if (preg_match('/freeTrial(\d+)_(?<buyType>\w+)/', $data, $match)) {
     } else {
         $token = RandomString(30);
         $subLink = $botState['subLinkState'] == "on" ? $botUrl . "settings/subLink.php?token=" . $token : "";
-        $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $bobi, $customPath, $customPort, $customSni);
+        $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $rahgozar, $customPath, $customPort, $customSni);
         $vray_link = json_encode($vraylink);
     }
     define('IMAGE_WIDTH', 540);
@@ -5778,9 +5778,9 @@ if (preg_match('/freeTrial(\d+)_(?<buyType>\w+)/', $data, $match)) {
         unlink($file);
     }
     $stmt = $connection->prepare("INSERT INTO `orders_list` 
-	    (`userid`, `token`, `transid`, `fileid`, `server_id`, `inbound_id`, `remark`, `uuid`, `protocol`, `expire_date`, `link`, `amount`, `status`, `date`, `notif`, `bobi`, `agent_bought`)
+	    (`userid`, `token`, `transid`, `fileid`, `server_id`, `inbound_id`, `remark`, `uuid`, `protocol`, `expire_date`, `link`, `amount`, `status`, `date`, `notif`, `rahgozar`, `agent_bought`)
 	    VALUES (?, ?, '', ?, ?, ?, ?, ?, ?, ?, ?, ?,1, ?, 0, ?, ?)");
-    $stmt->bind_param("isiiisssisiiii", $from_id, $token, $id, $server_id, $inbound_id, $remark, $uniqid, $protocol, $expire_date, $vray_link, $price, $date, $bobi, $agentBought);
+    $stmt->bind_param("isiiisssisiiii", $from_id, $token, $id, $server_id, $inbound_id, $remark, $uniqid, $protocol, $expire_date, $vray_link, $price, $date, $rahgozar, $agentBought);
     $stmt->execute();
     $order = $stmt->get_result();
     $stmt->close();
@@ -6221,7 +6221,7 @@ if (preg_match('/sConfigRenew(\d+)/', $data, $match)) {
                     break;
                 }
             }
-            $stmt = $connection->prepare("SELECT * FROM `server_plans` WHERE `server_id` = ? AND `inbound_id` = 0 AND `protocol` = ? AND `active` = 1 AND `price` != 0 AND `bobi` = 0");
+            $stmt = $connection->prepare("SELECT * FROM `server_plans` WHERE `server_id` = ? AND `inbound_id` = 0 AND `protocol` = ? AND `active` = 1 AND `price` != 0 AND `rahgozar` = 0");
         } else {
             foreach ($response as $row) {
                 if ($row->id == $inboundId) {
@@ -6231,7 +6231,7 @@ if (preg_match('/sConfigRenew(\d+)/', $data, $match)) {
                     break;
                 }
             }
-            $stmt = $connection->prepare("SELECT * FROM `server_plans` WHERE `server_id` = ? AND `inbound_id` != 0 AND `protocol` = ? AND `active` = 1 AND `price` != 0 AND `bobi` = 0");
+            $stmt = $connection->prepare("SELECT * FROM `server_plans` WHERE `server_id` = ? AND `inbound_id` != 0 AND `protocol` = ? AND `active` = 1 AND `price` != 0 AND `rahgozar` = 0");
         }
         $stmt->bind_param("is", $server_id, $protocol);
     }
@@ -6417,7 +6417,7 @@ if (preg_match('/sConfigUpdate(\d+)/', $data, $match)) {
     }
 }
 
-if (($data == 'addNewPlan' || $data == "addNewBobiPlan" || $data == "addNewMarzbanPlan") and (($from_id == $admin || $userInfo['isAdmin'] == true))) {
+if (($data == 'addNewPlan' || $data == "addNewRahgozarPlan" || $data == "addNewMarzbanPlan") and (($from_id == $admin || $userInfo['isAdmin'] == true))) {
     setUser($data);
     $stmt = $connection->prepare("DELETE FROM `server_plans` WHERE `active`=0");
     $stmt->execute();
@@ -6425,8 +6425,8 @@ if (($data == 'addNewPlan' || $data == "addNewBobiPlan" || $data == "addNewMarzb
     if ($data == "addNewPlan" || $data == "addNewMarzbanPlan") {
         $sql = "INSERT INTO `server_plans` (`fileid`, `catid`, `server_id`, `inbound_id`, `acount`, `limitip`, `title`, `protocol`, `days`, `volume`, `type`, `price`, `descr`, `pic`, `active`, `step`, `date`)
                                             VALUES ('', 0,0,0,0, 1, '', '', 0, 0, '', 0, '', '',0,1, ?);";
-    } elseif ($data == "addNewBobiPlan") {
-        $sql = "INSERT INTO `server_plans` (`fileid`, `catid`, `server_id`, `inbound_id`, `acount`, `limitip`, `title`, `protocol`, `days`, `volume`, `type`, `price`, `descr`, `pic`, `active`, `step`, `date`, `bobi`)
+    } elseif ($data == "addNewRahgozarPlan") {
+        $sql = "INSERT INTO `server_plans` (`fileid`, `catid`, `server_id`, `inbound_id`, `acount`, `limitip`, `title`, `protocol`, `days`, `volume`, `type`, `price`, `descr`, `pic`, `active`, `step`, `date`, `rahgozar`)
                     VALUES ('', 0,0,0,0, 1, '', '', 0, 0, '', 0, '', '',0,1, ?, 1);";
     }
     $stmt = $connection->prepare($sql);
@@ -6438,7 +6438,7 @@ if (($data == 'addNewPlan' || $data == "addNewBobiPlan" || $data == "addNewMarzb
     sendMessage($msg, $cancelKey);
     exit;
 }
-if (preg_match('/(addNewBobiPlan|addNewPlan|addNewMarzbanPlan)/', $userInfo['step']) and $text != $buttonValues['cancel'] && ($from_id == $admin || $userInfo['isAdmin'] == true)) {
+if (preg_match('/(addNewRahgozarPlan|addNewPlan|addNewMarzbanPlan)/', $userInfo['step']) and $text != $buttonValues['cancel'] && ($from_id == $admin || $userInfo['isAdmin'] == true)) {
     $catkey = [];
     $stmt = $connection->prepare("SELECT * FROM `server_categories` WHERE `parent` =0 and `active`=1");
     $stmt->execute();
@@ -6543,7 +6543,7 @@ if (preg_match('/(addNewBobiPlan|addNewPlan|addNewMarzbanPlan)/', $userInfo['ste
         else editText($message_id, "📅 | لطفا تعداد روز های اعتبار این پلن را وارد کنید:");
     }
     if ($step == 51 and $text != $buttonValues['cancel'] and preg_match('/^with(Specific|Shared)Port/', $data, $match)) {
-        if ($userInfo['step'] == "addNewBobiPlan") $msg =  "📡 | لطفا پروتکل پلن مورد نظر را وارد کنید (vless | vmess)";
+        if ($userInfo['step'] == "addNewRahgozarPlan") $msg =  "📡 | لطفا پروتکل پلن مورد نظر را وارد کنید (vless | vmess)";
         else $msg =  "📡 | لطفا پروتکل پلن مورد نظر را وارد کنید (vless | vmess | trojan)";
         editText($message_id, $msg);
         if ($match[1] == "Shared") {
@@ -6560,7 +6560,7 @@ if (preg_match('/(addNewBobiPlan|addNewPlan|addNewMarzbanPlan)/', $userInfo['ste
         if ($text != "vless" && $text != "vmess" && $text != "trojan" && $userInfo['step'] == "addNewPlan") {
             sendMessage("لطفا فقط پروتکل های vless و vmess را وارد کنید", $cancelKey);
             exit();
-        } elseif ($text != "vless" && $text != "vmess" && $userInfo['step'] == "addNewBobiPlan") {
+        } elseif ($text != "vless" && $text != "vmess" && $userInfo['step'] == "addNewRahgozarPlan") {
             sendMessage("لطفا فقط پروتکل های vless و vmess را وارد کنید", $cancelKey);
             exit();
         }
@@ -6656,7 +6656,7 @@ if (preg_match('/(addNewBobiPlan|addNewPlan|addNewMarzbanPlan)/', $userInfo['ste
         if ($userInfo['step'] == "addNewPlan" && $text != "vless" && $text != "vmess" && $text != "trojan") {
             sendMessage("لطفا فقط پروتکل های vless و vmess را وارد کنید", $cancelKey);
             exit();
-        } elseif ($userInfo['step'] == "addNewBobiPlan" && $text != "vless" && $text != "vmess") {
+        } elseif ($userInfo['step'] == "addNewRahgozarPlan" && $text != "vless" && $text != "vmess") {
             sendMessage("لطفا فقط پروتکل های vless و vmess را وارد کنید", $cancelKey);
             exit();
         }
@@ -6690,7 +6690,7 @@ if (preg_match('/(addNewBobiPlan|addNewPlan|addNewMarzbanPlan)/', $userInfo['ste
         if ($userInfo['step'] == "addNewPlan") {
             $sql = ("UPDATE `server_plans` SET `volume`=?,`step`=55 WHERE `active`=0");
             $msg = "🔉 | لطفا نوع شبکه این پلن را در انتخاب کنید  (ws | tcp | grpc) :";
-        } elseif ($userInfo['step'] == "addNewBobiPlan" || $userInfo['step'] == "addNewMarzbanPlan") {
+        } elseif ($userInfo['step'] == "addNewRahgozarPlan" || $userInfo['step'] == "addNewMarzbanPlan") {
             $sql = ("UPDATE `server_plans` SET `volume`=?, `type`='ws', `step`=4 WHERE `active`=0");
             $msg = '🔻یه توضیح برای پلن مورد نظرت بنویس:';
         }
@@ -6807,7 +6807,7 @@ if ($data == 'backplan' and ($from_id == $admin || $userInfo['isAdmin'] == true)
     $keyboard[] = [['text' => "➖➖➖", 'callback_data' => "Alph4ir"]];
     $keyboard[] = [['text' => '➕ افزودن پلن اختصاصی و اشتراکی', 'callback_data' => "addNewPlan"]];
     $keyboard[] = [
-        ['text' => '➕ افزودن پلن رهگذر', 'callback_data' => "addNewBobiPlan"],
+        ['text' => '➕ افزودن پلن رهگذر', 'callback_data' => "addNewRahgozarPlan"],
         ['text' => "افزودن پلن مرزبان", 'callback_data' => "addNewMarzbanPlan"]
     ];
     $keyboard[] = [['text' => '➕ افزودن پلن حجمی', 'callback_data' => "volumePlanSettings"], ['text' => '➕ افزودن پلن زمانی', 'callback_data' => "dayPlanSettings"]];
@@ -7414,7 +7414,7 @@ if (preg_match('/updateConfigConnectionLink(\d+)/', $data, $match)) {
     $stmt->execute();
     $file_detail = $stmt->get_result()->fetch_assoc();
 
-    $bobi = $order['bobi'];
+    $rahgozar = $order['rahgozar'];
     $customPath = $file_detail['custom_path'];
     $customPort = $file_detail['custom_port'];
     $customSni = $file_detail['custom_sni'];
@@ -7459,9 +7459,9 @@ if (preg_match('/updateConfigConnectionLink(\d+)/', $data, $match)) {
         }
 
         if ($botState['updateConnectionState'] == "robot") {
-            updateConfig($server_id, $iId, $protocol, $netType, $security, $bobi);
+            updateConfig($server_id, $iId, $protocol, $netType, $security, $rahgozar);
         }
-        $vraylink = getConnectionLink($server_id, $uuid, $protocol, $remark, $port, $netType, $inboundId, $bobi, $customPath, $customPort, $customSni);
+        $vraylink = getConnectionLink($server_id, $uuid, $protocol, $remark, $port, $netType, $inboundId, $rahgozar, $customPath, $customPort, $customSni);
     }
     $vray_link = json_encode($vraylink);
     $stmt = $connection->prepare("UPDATE `orders_list` SET `link`=? WHERE `id`=?");
@@ -7489,7 +7489,7 @@ if (preg_match('/changAccountConnectionLink(\d+)/', $data, $match)) {
     $inboundId = $order['inbound_id'];
     $acc_link = $order['link'];
     $server_id = $order['server_id'];
-    $bobi = $order['bobi'];
+    $rahgozar = $order['rahgozar'];
 
     $file_id = $order['fileid'];
 
@@ -7540,7 +7540,7 @@ if (preg_match('/changAccountConnectionLink(\d+)/', $data, $match)) {
             $update_response = renewClientUuid($server_id, $inboundId, $uuid);
         }
         $newUuid = $update_response->newUuid;
-        $vraylink = getConnectionLink($server_id, $newUuid, $protocol, $remark, $port, $netType, $inboundId, $bobi, $customPath, $customPort, $customSni);
+        $vraylink = getConnectionLink($server_id, $newUuid, $protocol, $remark, $port, $netType, $inboundId, $rahgozar, $customPath, $customPort, $customSni);
         $newToken = RandomString(30);
     }
 
@@ -7633,7 +7633,7 @@ if (preg_match('/changeAccProtocol(\d+)_(\d+)_(.*)/', $data, $match)) {
     $acc_link = $order['link'];
     $server_id = $order['server_id'];
     $price = $order['amount'];
-    $bobi = $order['bobi'];
+    $rahgozar = $order['rahgozar'];
     $file_id = $order['fileid'];
 
     $stmt = $connection->prepare("SELECT * FROM `server_plans` WHERE `id`=?");
@@ -7660,8 +7660,8 @@ if (preg_match('/changeAccProtocol(\d+)_(\d+)_(.*)/', $data, $match)) {
     if ($protocol == 'trojan') $netType = 'tcp';
     $uniqid = generateRandomString(42, $protocol);
     $leftgb = round(($total - $up - $down) / 1073741824, 2) . " GB";
-    $update_response = editInbound($server_id, $uniqid, $uuid, $protocol, $netType, $security, $bobi);
-    $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, 0, $bobi, $customPath, $customPort, $customSni);
+    $update_response = editInbound($server_id, $uniqid, $uuid, $protocol, $netType, $security, $rahgozar);
+    $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, 0, $rahgozar, $customPath, $customPort, $customSni);
 
     $vray_link = json_encode($vraylink);
     $stmt = $connection->prepare("UPDATE `orders_list` SET `protocol`=?,`link`=?, `uuid` = ? WHERE `id`=?");
