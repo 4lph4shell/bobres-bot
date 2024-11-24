@@ -1,4 +1,6 @@
-
+<div align="center">
+<img  src="https://github.com/4lph4shell/4lph4shell/blob/master/Animation%20-%201732460593433.gif">
+  </div> 
 <h1 align="center"/>Welcome to BOBres</h1>
 <div align="center">
 <li>
